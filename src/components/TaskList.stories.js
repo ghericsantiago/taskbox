@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import {PureTaskList} from './TaskList';
 import { task, actions } from './Task.stories';
-
+import { withKnobs, object } from '@storybook/addon-knobs/react';
 
 export const defaultTasks = [
     { ...task, id: '1', title: 'Task 1' },
@@ -21,7 +21,8 @@ export const withPinnedTasks = [
 
 storiesOf('TaskList', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
-  .add('default', () => <PureTaskList tasks={defaultTasks} {...actions} />)
+  .addDecorator(withKnobs)
+  .add('default', () => <PureTaskList tasks={object('TaskList', defaultTasks)} {...actions} />)
   .add('withPinnedTasks', () => <PureTaskList tasks={withPinnedTasks} {...actions} />)
   .add('loading', () => <PureTaskList loading tasks={[]} {...actions} />)
   .add('empty', () => <PureTaskList tasks={[]} {...actions} />);
