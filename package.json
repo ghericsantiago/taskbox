@@ -10,7 +10,8 @@
     "react-scripts": "3.0.1",
     "react-test-renderer": "^16.8.6",
     "redux": "^4.0.4",
-    "require-context.macro": "^1.1.0"
+    "require-context.macro": "^1.1.0",
+    "storybook-chromatic": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
